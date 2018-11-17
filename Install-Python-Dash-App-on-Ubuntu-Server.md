@@ -68,7 +68,7 @@ sudo nano /etc/apache2/sites-available/FlaskApp.conf
 
 ```
 <VirtualHost *:80>
-   ServerName 192.168.0.1
+   ServerName yourservername
    ServerAdmin youremail@email.com
    WSGIScriptAlias / /var/www/FlaskApp/FlaskApp.wsgi
    <Directory /var/www/FlaskApp/FlaskApp/>
@@ -83,7 +83,9 @@ sudo nano /etc/apache2/sites-available/FlaskApp.conf
 
 ```
 sudo a2ensite FlaskApp
+```
 
+```
 sudo mkdir -p /var/www/FlaskApp/FlaskApp
 ```
 
