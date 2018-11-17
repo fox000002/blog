@@ -87,7 +87,7 @@ sudo a2ensite FlaskApp
 sudo mkdir -p /var/www/FlaskApp/FlaskApp
 ```
 
-*The steps for deploying the Flask App are ignored here, since they are overwritten when deploying the Dash App.*
+*The rest steps for deploying the Flask App are ignored here, since they are overwritten when deploying the Dash App. Check [1] for more details.*
 
 #### Remove default enabled sites
 
@@ -183,12 +183,12 @@ application = app.server
 
 ### References
 
-- https://pythonprogramming.net/basic-flask-website-tutorial/?completed=/practical-flask-introduction/
+[1] https://pythonprogramming.net/basic-flask-website-tutorial/?completed=/practical-flask-introduction/
 
-- https://dash.plot.ly/installation
+[2] https://dash.plot.ly/installation
 
-- https://plot.ly/dash/deployment
+[3] https://plot.ly/dash/deployment
 
-- https://help.pythonanywhere.com/pages/Flask/
+[4] https://help.pythonanywhere.com/pages/Flask/
 
-- https://stackoverflow.com/questions/50724859/call-local-css-files-in-dash-app
+[5] https://stackoverflow.com/questions/50724859/call-local-css-files-in-dash-app
