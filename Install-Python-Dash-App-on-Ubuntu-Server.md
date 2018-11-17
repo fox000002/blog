@@ -83,7 +83,11 @@ sudo nano /etc/apache2/sites-available/FlaskApp.conf
 
 ```
 sudo a2ensite FlaskApp
+
+sudo mkdir -p /var/www/FlaskApp/FlaskApp
 ```
+
+*The steps for deploying the Flask App are ignored here, since they are overwritten when deploying the Dash App.*
 
 #### Remove default enabled sites
 
@@ -128,7 +132,7 @@ The directory structure is as following:
 
 #### Update app.py
 
-Since it run with WSGI, `os.getcwd()` does not work any more. Change it to absolute path and fix the parameter syntax.
+Since it run with WSGI, `os.getcwd()` does not work any more. Change it to absolute path and fix the parameter `<path>` syntax.
 
 If this is not corrected, files such as `/static/base.css` will throw `404`.
 
@@ -137,6 +141,23 @@ sudo nano /var/www/FlaskApp/FlaskApp/app.py
 ```
 
 ```
+import dash
+import os
+
+from flask import send_from_directory
+
+
+app = dash.Dash()
+server = app.server
+app.config.supress_callback_exceptions = True
+
+external_css = [
+    'https://codepen.io/chriddyp/pen/bWLwgP.css',
+    '/static/base.css'
+]
+for css in external_css:
+    app.css.append_css({"external_url": css})
+
 @app.server.route('/static/<path>')
 def static_file(path):
     static_folder = os.path.join('/var/www/FlaskApp/FlaskApp/', 'static')
