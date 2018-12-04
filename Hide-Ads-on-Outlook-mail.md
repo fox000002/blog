@@ -1,6 +1,6 @@
 The class and id are dynamic on https://outlook.live.com/mail. To hide the ads, it has to locate that by index. 
 
-```
+```JavaScript
 // ==UserScript==
 // @name         outlook
 // @namespace    http://tampermonkey.net/
