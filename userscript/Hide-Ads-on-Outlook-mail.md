@@ -1,5 +1,7 @@
 The class and id are dynamic on https://outlook.live.com/mail. To hide the ads, it has to locate that by index. 
 
+![outlook mail](outlook.png)
+
 ```JavaScript
 // ==UserScript==
 // @name         outlook
