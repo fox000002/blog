@@ -352,6 +352,10 @@ After updating `.bashrc`, make it in effect.
 source ~/.bashrc
 ```
 
+## Visit the app
+
+![app](images/app.png)
+
 ### references
 
 [1] https://getcomposer.org/download/
