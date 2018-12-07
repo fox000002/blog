@@ -144,7 +144,7 @@ pkg install php
 pkg install nginx
 ```
 
-#### nginx.conf
+#### Update `/etc/nginx/nginx.conf`
 
 You can get the file from [nginx.conf](https://github.com/fox000002/blog/blob/master/termux/nginx.conf).
 
@@ -279,7 +279,7 @@ http {
 pkg install php-fpm
 ```
 
-#### `/etc/php-fpm.d/www.conf`
+#### Update `/etc/php-fpm.d/www.conf`
 
 Edit the `listen` address.
 
