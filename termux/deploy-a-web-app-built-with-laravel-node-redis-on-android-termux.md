@@ -31,6 +31,8 @@ ifconfig # find the IP address
 
 ```
 
+![info](images/info.jpg)
+
 ### Utility packages
 
 - Package `wget` and `curl` are used to download files from HTTP servers.
