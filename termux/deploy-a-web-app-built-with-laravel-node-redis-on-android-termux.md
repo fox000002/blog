@@ -37,6 +37,8 @@ The web app is built with PHP/Laravel, node.js and redis.
 
 The code will be deployed in `$HOME/firstchart`.
 
+https://drive.google.com/file/d/1IUFCGSBIXxbmRrx_neX9PDLcM4C_Ctak/view?usp=sharing
+
 https://github.com/maximus1127/neweyechart
 
 ## Install termux.app
