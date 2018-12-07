@@ -1,6 +1,37 @@
 Deploy a Web App Built with Larval+Node.JS+Redis on Android Termux
 ---
 
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+    - [The Web App to deploy](#the-web-app-to-deploy)
+    - [Install termux.app](#install-termuxapp)
+    - [Install packages in termux](#install-packages-in-termux)
+        - [System Info](#system-info)
+        - [Utility packages](#utility-packages)
+        - [SSH](#ssh)
+            - [Start SSH server](#start-ssh-server)
+            - [Use puttygen.exe to generate key files](#use-puttygenexe-to-generate-key-files)
+            - [Add public key to `~/.ssh/autherized_keys`](#add-public-key-to-sshautherizedkeys)
+            - [Use putty.exe to login](#use-puttyexe-to-login)
+        - [proot](#proot)
+        - [Git (optional)](#git-optional)
+        - [Python (optional)](#python-optional)
+        - [clang (optional)](#clang-optional)
+        - [redis](#redis)
+        - [node.js](#nodejs)
+        - [PHP](#php)
+        - [Nginx](#nginx)
+        - [php-fpm](#php-fpm)
+    - [Configuration](#configuration)
+        - [Update `/etc/nginx/nginx.conf`](#update-etcnginxnginxconf)
+        - [Update `/etc/php-fpm.d/www.conf`](#update-etcphp-fpmdwwwconf)
+        - [node modules](#node-modules)
+        - [Laravel](#laravel)
+        - [Startup script](#startup-script)
+    - [Visit the app](#visit-the-app)
+    - [references](#references)
+
 ## The Web App to deploy
 
 The web app is built with PHP/Laravel, node.js and redis.
@@ -146,7 +177,15 @@ pkg install php
 pkg install nginx
 ```
 
-#### Update `/etc/nginx/nginx.conf`
+### php-fpm
+
+```bash
+pkg install php-fpm
+```
+
+## Configuration
+
+### Update `/etc/nginx/nginx.conf`
 
 You can get the file from [nginx.conf](https://github.com/fox000002/blog/blob/master/termux/nginx.conf).
 
@@ -275,13 +314,7 @@ http {
 
 ```
 
-### php-fpm
-
-```bash
-pkg install php-fpm
-```
-
-#### Update `/etc/php-fpm.d/www.conf`
+### Update `/etc/php-fpm.d/www.conf`
 
 Edit the `listen` address.
 
@@ -294,7 +327,11 @@ You can also get the file from [www.conf](https://github.com/fox000002/blog/blob
 
 ### node modules
 
+After upload code in `$HOME/firstchart`, you need to install the node modules.
+
 ```bash
+cd $HOME/firstchart
+
 npm install --production
 
 # or
@@ -303,6 +340,8 @@ NODE_ENV=production npm install
 ```
 
 ### Laravel
+
+If the code does contains vendor files, install composer and packages.
 
 - composer
 
@@ -358,7 +397,7 @@ source ~/.bashrc
 
 ![app](images/app.png)
 
-### references
+## references
 
 [1] https://getcomposer.org/download/
 
