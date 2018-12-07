@@ -146,6 +146,8 @@ pkg install nginx
 
 #### nginx.conf
 
+You can get the file from [nginx.conf](https://github.com/fox000002/blog/blob/master/termux/nginx.conf).
+
 ```bash
 
 #user  nobody;
@@ -285,7 +287,7 @@ Edit the `listen` address.
 listen = 127.0.0.1
 ```
 
-Or use the file `www.conf`.
+You can also get the file from [www.conf](https://github.com/fox000002/blog/blob/master/termux/www.conf).
 
 
 ### node modules
@@ -317,7 +319,7 @@ php composer.phar install
 
 ### Startup script
 
-Edit `~/.bashrc`
+Edit `~/.bashrc`. You can also get it from [.bashrc](https://github.com/fox000002/blog/blob/master/termux/.bashrc)
 
 ```bash
 # bootstrap
