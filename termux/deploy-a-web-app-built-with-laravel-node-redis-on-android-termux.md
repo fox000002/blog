@@ -1,8 +1,11 @@
 Deploy a Web App Built with Larval+Node.JS+Redis on Android Termux
+---
 
 ## The Web App to deploy
 
-It's built with PHP/Laravel, node.js and redis.
+The web app is built with PHP/Laravel, node.js and redis.
+
+The code will be deployed in `$HOME/firstchart`.
 
 https://github.com/maximus1127/neweyechart
 
@@ -18,7 +21,17 @@ https://termux.com/
 
 After starting termux app, you can run commands in the terminal.
 
-### utility packages
+### System Info
+
+```bash
+
+whoami # the user name in use
+
+ifconfig # find the IP address
+
+```
+
+### Utility packages
 
 - Package `wget` and `curl` are used to download files from HTTP servers.
 
@@ -27,6 +40,55 @@ After starting termux app, you can run commands in the terminal.
 ```bash
 pkg install wget curl vim
 ```
+
+### SSH
+
+```bash
+pkg install sshd
+```
+
+#### Start SSH server
+
+```bash
+sshd
+```
+
+The SSH server in termux can only be logged in with a key files. Go to https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html and get putty.exe & puttygen.exe.
+
+- putty.exe: a SSH client
+- puttygen.exe: a RSA and DSA key generation utility
+
+#### Use puttygen.exe to generate key files
+
+![puttygen.png](images/puttygen.png)
+
+#### Add public key to `~/.ssh/autherized_keys`
+
+To move termux.pub to Android, you can host the file on a HTTP or FTP server in local network. Then download it with wget.
+
+```bash
+wget http://192.168.1.106:8000/termux.pub # Use your own address
+```
+
+Just append the content into `~/.ssh/autherized_keys`
+
+```bash
+cat termux.pub >> ~/.ssh/autherized_keys
+```
+
+#### Use putty.exe to login
+
+![putty_1.png](images/putty_1.png)
+
+
+![putty_2.png](images/putty_2.png)
+
+
+![putty_3.png](images/putty_3.png)
+
+![putty_4.png](images/putty_4.png)
+
+![putty_5.png](images/putty_5.png)
 
 ### proot
 
@@ -269,6 +331,7 @@ then
   # node
   cd /home/firstchart
   pgrep node || (node server.js &)
+  cd /home
 
   # php-fpm
   pgrep php-fpm || php-fpm
@@ -279,6 +342,12 @@ else
   # chroot if not in root environment
   termux-chroot
 fi
+```
+
+After updating `.bashrc`, make it in effect.
+
+```bash
+source ~/.bashrc
 ```
 
 ### references
