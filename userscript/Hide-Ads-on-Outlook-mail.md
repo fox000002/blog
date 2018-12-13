@@ -19,9 +19,20 @@ The class and id are dynamic on https://outlook.live.com/mail. To hide the ads, 
    var timer = setInterval(function() {
      $('div#app > div > div:nth-child(2) > div > div > div:nth-child(4)').hide();
      if ($('div#app > div > div:nth-child(2) > div > div > div:nth-child(4)').css('display') === 'none') {
+         console.log('Hide side ads');
        clearInterval(timer);
      }
    }, 100);
+
+   var timer2 = setInterval(function() {
+     if ($('div#app > div > div:nth-child(2) > div > div > div:nth-child(4)').css('display') === 'none') {
+       $('#app > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(2)').hide();
+       if ($('#app > div > div:nth-child(2) > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(2)').css('display') === 'none') {
+           console.log('Hide upgrade');
+           clearInterval(timer2);
+       }
+      }
+     }, 100);
  });
 })();
 ```
